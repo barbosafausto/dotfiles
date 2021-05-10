@@ -3,7 +3,9 @@
 In this rep you can take a look at all the dotfiles I have.
 
 
+
 Reminders:
+
 
 For nvim, remember to install coc.
 
