@@ -2,6 +2,10 @@
 
 In this rep you can take a look at all the dotfiles I have.
 
+## i3
+
+If you want to take a look at the Polybar config file, I recommend you see the one for i3. At the end, there are some related command lines.
+
 ## Keyboard
 
 Good to point out that the file path is: `/etc/X11/xorg.conf.d/`
