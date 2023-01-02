@@ -1,6 +1,6 @@
 # dotfiles
 
-In this rep you can take a look at all the dotfiles I have.
+In this rep you can take a look at all the dotfiles I have. Some are archlinux-specific, such as the keyboard configuration, others are more general, such as neovim and i3wm.
 
 ## i3
 
