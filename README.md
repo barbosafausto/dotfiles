@@ -8,8 +8,6 @@ If you want to take a look at the Polybar config file, I recommend you see the o
 
 ## Keyboard
 
-Good to point out that the file path is: `/etc/X11/xorg.conf.d/`
-
 For keyboard tap-click, remember to install the driver xf86-input-libinput
 
 ## Nvim
