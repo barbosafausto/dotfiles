@@ -59,7 +59,8 @@ font-0 = "DejaVu Sans Mono for Powerline:pixelsize=9;1"
 font-1 = "Noto Sans Symbols2:pixelsize=9;2"
 
 modules-left = bspwm i3
-modules-center = mpd popup-calendar date time
+modules-center = mpd popup-calendar date
+;time
 modules-right = filesystem backlight pulseaudio memory cpu wlan battery temperature powermenu
 
 tray-position = right
