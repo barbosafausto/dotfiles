@@ -1,0 +1,7 @@
+[init]
+	defaultBranch = master
+[credential]
+	helper = libsecret
+[user]
+	email = vitalbfausto@gmail.com
+	name = barbosafausto
