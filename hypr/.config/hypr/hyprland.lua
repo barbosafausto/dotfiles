@@ -66,9 +66,11 @@ for key, d in pairs(dirs) do
     hl.bind("CTRL + SHIFT + " .. K, hl.dsp.window.move({ direction = d }), {
         description = "[Window] move window " .. d,
     })
-    hl.bind(mod .. " + SHIFT + " .. K,
-        hl.dsp.window.move({ direction = d, group_aware = true }), {
-        description = "[Group] move window into/out of group " .. d,
+    hl.bind(mod .. " + SHIFT + " .. K, function()
+        hl.dispatch(hl.dsp.window.move({ direction = d, group_aware = true }))
+        hl.dispatch(hl.dsp.window.move({ direction = d }))
+    end, {
+        description = "[Group] merge / eject window " .. d,
     })
 end
 
@@ -83,3 +85,9 @@ hl.bind(mod .. " + H", hl.dsp.group.prev(), { description = "[Group] previous" }
 hl.bind(mod .. " + K", hl.dsp.group.prev(), { description = "[Group] previous" })
 hl.bind(mod .. " + L", hl.dsp.group.next(), { description = "[Group] next" })
 hl.bind(mod .. " + J", hl.dsp.group.next(), { description = "[Group] next" })
+
+hl.window_rule({
+    name = "suppress-maximize-events",
+    match = { class = ".*" },
+    suppress_event = "maximize",
+})
