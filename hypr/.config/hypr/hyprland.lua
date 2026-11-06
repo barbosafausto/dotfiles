@@ -14,6 +14,14 @@ if not hyde then
 	dofile(entry)
 end
 
+hl.config({
+    input = {
+        kb_layout = "br",
+        kb_variant = "",
+        kb_model = "abnt2",
+    },
+})
+
 -- Your Hyprland configuration. HyDE never overwrites this file.
 --
 -- It loads after HyDE's own binds, so settings here take precedence. Replacing
@@ -42,3 +50,36 @@ end
 -- The full reference is KEYBINDINGS.md in the HyDE repository.
 --
 -- Other Lua files next to this one can be pulled in with require("name").
+
+local mod = "SUPER"
+
+hl.bind(mod .. " + SHIFT + Q", hl.dsp.window.close(), {
+    description = "[Window] close window",
+})
+
+local dirs = { h = "l", l = "r", k = "u", j = "d" }
+for key, d in pairs(dirs) do
+    local K = key:upper()
+    hl.bind("CTRL + " .. K, hl.dsp.focus({ direction = d }), {
+        description = "[Window] focus " .. d,
+    })
+    hl.bind("CTRL + SHIFT + " .. K, hl.dsp.window.move({ direction = d }), {
+        description = "[Window] move window " .. d,
+    })
+    hl.bind(mod .. " + SHIFT + " .. K,
+        hl.dsp.window.move({ direction = d, group_aware = true }), {
+        description = "[Group] move window into/out of group " .. d,
+    })
+end
+
+hl.bind(mod .. " + ESCAPE", hl.dsp.exec_cmd("hyprlock"), { description = "[Utilities] lock screen" })
+hl.bind(mod .. " + SHIFT + B",
+    hl.dsp.exec_cmd("pkill -x rofi || hyde-shell wallbashtoggle -m"),
+    { description = "[Utilities] wallbash mode selector" })
+hl.bind(mod .. " + SHIFT + R", hl.dsp.exec_cmd("killall waybar"), { description = "[Utilities] restart waybar" })
+
+-- Cycle windows inside a group (overrides HyDE's lock / split / layout-switch)
+hl.bind(mod .. " + H", hl.dsp.group.prev(), { description = "[Group] previous" })
+hl.bind(mod .. " + K", hl.dsp.group.prev(), { description = "[Group] previous" })
+hl.bind(mod .. " + L", hl.dsp.group.next(), { description = "[Group] next" })
+hl.bind(mod .. " + J", hl.dsp.group.next(), { description = "[Group] next" })
